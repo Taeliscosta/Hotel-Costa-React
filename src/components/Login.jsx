@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNavigate, Link } from 'react-router';
+import { useNavigate } from 'react-router';
 import { fazerLogin } from '../services/api';
 
 function Login({ onLogin }) {
@@ -13,10 +13,11 @@ function Login({ onLogin }) {
     e.preventDefault();
     setErro('');
     setCarregando(true);
+    
     try {
       const usuario = await fazerLogin(email, senha);
       onLogin(usuario);
-      navigate('/home');
+      navigate('/dashboard'); 
     } catch (err) {
       setErro(err.message);
     } finally {
@@ -25,17 +26,36 @@ function Login({ onLogin }) {
   }
 
   return (
-    <div className="card">
-      <h2>Acesso ao Sistema</h2>
-      <form onSubmit={handleSubmit}>
-        <input placeholder="E-mail corporativo" value={email} onChange={(e) => setEmail(e.target.value)} />
-        <input placeholder="Senha" type="password" value={senha} onChange={(e) => setSenha(e.target.value)} />
+    <div className="login-container">
+      <h1 className="login-titulo">Hotel Costa</h1>
+      
+      <div className="login-box">
+        <h2>Acesso ao Sistema</h2>
+        
         {erro && <p className="erro">{erro}</p>}
-        <button type="submit" disabled={carregando}>
-          {carregando ? 'Entrando...' : 'Entrar'}
-        </button>
-      </form>
+        
+        <form onSubmit={handleSubmit}>
+          <input 
+            type="email" 
+            placeholder="E-mail corporativo" 
+            required
+            value={email} 
+            onChange={(e) => setEmail(e.target.value)} 
+          />
+          <input 
+            type="password" 
+            placeholder="Senha" 
+            required
+            value={senha} 
+            onChange={(e) => setSenha(e.target.value)} 
+          />
+          <button type="submit" disabled={carregando}>
+            {carregando ? 'Aguarde...' : 'Entrar'}
+          </button>
+        </form>
+      </div>
     </div>
   );
 }
+
 export default Login;
