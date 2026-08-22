@@ -1,16 +1,55 @@
-# React + Vite
+# 🏨 Hotel Costa - Sistema de Gestão Hoteleira
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white)
+![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
 
-Currently, two official plugins are available:
+Frontend do sistema de gestão do **Hotel Costa**, desenvolvido como entrega do **Projeto 2** da disciplina de Desenvolvimento Web da Universidade Estadual da Paraíba (UEPB). O sistema está totalmente em produção, com o frontend hospedado na Vercel e o backend no Render.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🔗 Links de Produção
+- **🌐 Sistema Online (Vercel):** [https://hotel-costa-react.vercel.app](https://hotel-costa-react.vercel.app)
+- **⚙️ API Backend (Render):** [https://hotel-costa.onrender.com](https://hotel-costa.onrender.com)
+- **📦 Repositório da API:** [GitHub - Hotel-Costa](https://github.com/Taeliscosta/Hotel-Costa)
 
-## React Compiler
+*(Nota: Adicione aqui o link do Protótipo no Figma e do Vídeo de Apresentação)*
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## ✨ Funcionalidades
+- **Autenticação:** Login seguro de funcionários integrado diretamente com a API no Render.
+- **Dashboard:** Visão geral com métricas dinâmicas de sistema (Total de clientes, quartos disponíveis, reservas ativas).
+- **Gestão de Clientes:** Listagem em tabela, cadastro dinâmico e exclusão.
+- **Gestão de Quartos:** Visualização em cards (status Ocupado/Disponível) e cadastro de novas acomodações.
+- **Gestão de Reservas:** Criação inteligente de reservas (selecionando clientes por nome e filtrando apenas quartos livres) e cancelamento seguro.
 
-## Expanding the ESLint configuration
+## 🛠️ Tecnologias Utilizadas
+- **React (Vite):** Componentização e alta performance.
+- **React Router:** Roteamento de páginas e proteção de rotas privadas (acesso restrito a usuários logados).
+- **Fetch API:** Consumo RESTful do backend na nuvem.
+- **CSS3:** Estilização responsiva e interface fiel ao protótipo do Figma utilizando Flexbox e Grid Layout.
+- **Deploy:** Vercel (Frontend) e Render (Backend/SQLite).
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🚀 Como executar localmente (Ambiente de Desenvolvimento)
+
+Caso deseje rodar o projeto em sua máquina:
+
+1. Clone o repositório:
+\`\`\`bash
+git clone https://github.com/Taeliscosta/Hotel-Costa-React.git
+\`\`\`
+
+2. Entre na pasta e instale as dependências:
+\`\`\`bash
+npm install
+\`\`\`
+
+3. Crie um arquivo `.env` na raiz do projeto. Por padrão, ele usará o backend em produção no Render, mas você pode apontar para localhost:
+\`\`\`env
+VITE_API_URL=http://localhost:3000 
+\`\`\`
+
+4. Inicie o servidor local:
+\`\`\`bash
+npm run dev
+\`\`\`
+
+## 👨‍💻 Autor
+- **Taélis Costa** - Estudante de Ciência da Computação (UEPB)
