@@ -1,25 +1,27 @@
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router';
+import { fazerLogin } from '../services/api';
 
-function Login({ usuarios, onLogin }) {
+function Login({ onLogin }) {
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
   const [erro, setErro] = useState('');
+  const [carregando, setCarregando] = useState(false);
   const navigate = useNavigate();
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
     setErro('');
-    
-    const usuario = usuarios.find(
-      (u) => u.email === email && u.senha === senha
-    );
-    if (!usuario) {
-      setErro('E-mail ou senha inválidos.');
-      return;
+    setCarregando(true);
+    try {
+      const usuario = await fazerLogin(email, senha);
+      onLogin(usuario);
+      navigate('/home');
+    } catch (err) {
+      setErro(err.message);
+    } finally {
+      setCarregando(false);
     }
-    onLogin(usuario);
-    navigate('/home');
   }
 
   return (
@@ -29,11 +31,11 @@ function Login({ usuarios, onLogin }) {
         <input placeholder="E-mail corporativo" value={email} onChange={(e) => setEmail(e.target.value)} />
         <input placeholder="Senha" type="password" value={senha} onChange={(e) => setSenha(e.target.value)} />
         {erro && <p className="erro">{erro}</p>}
-        <button type="submit">Entrar</button>
+        <button type="submit" disabled={carregando}>
+          {carregando ? 'Entrando...' : 'Entrar'}
+        </button>
       </form>
-      <p>Novo funcionário? <Link to="/cadastro">Solicitar acesso</Link></p>
     </div>
   );
 }
-
 export default Login;
