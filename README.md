@@ -11,7 +11,10 @@ Frontend do sistema de gestão do **Hotel Costa**, desenvolvido como entrega do 
 - **⚙️ API Backend (Render):** [https://hotel-costa.onrender.com](https://hotel-costa.onrender.com)
 - **📦 Repositório da API:** [GitHub - Hotel-Costa](https://github.com/Taeliscosta/Hotel-Costa)
 
-*(Nota: Adicione aqui o link do Protótipo no Figma e do Vídeo de Apresentação)*
+## 🔐 Acesso para Teste
+Para avaliar o sistema online, utilize as credenciais de administrador abaixo:
+- **E-mail corporativo:** taeliscosta11@gmail.com
+- **Senha:** 12345678
 
 ## ✨ Funcionalidades
 - **Autenticação:** Login seguro de funcionários integrado diretamente com a API no Render.
